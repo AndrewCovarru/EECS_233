@@ -1,0 +1,95 @@
+\documentclass[letterpaper, 10pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage[left=2.35cm,top=2.45cm,bottom=2.45cm,right=2.35cm,letterpaper]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C,CO]{\thepage}
+\fancyhead[L,LO]{\bfseries EECS 233} %Class Title
+\fancyhead[C,CO]{\bfseries Homework 3} %Assignment Title
+\fancyhead[R,RO]{Fall 2016} %Semester 
+
+\newenvironment{questions}{\noindent \textbf{Questions}} %BoldFaced Subsection
+
+\newenvironment{q1}{\noindent Question 1:} %Question Number
+
+\newenvironment{a1}{\noindent } %Answer
+
+\newenvironment{q2}{\noindent Question 2: }
+
+\newenvironment{a2}{\noindent }
+
+\begin{document}
+	
+	\noindent
+	Andrew Covarrubias (axc554) %Name
+	\bigskip
+	\bigskip
+	
+	\begin{questions} %Start Questions
+		
+		\bigskip
+		
+		\begin{q1} %Question
+			\\
+			\textbf{Include your program output in a typed report}
+			
+		\end{q1}
+		
+		\bigskip
+		
+		
+		
+		\begin{a1} %Answer
+			\graphicspath{ {C:\Users\Andrew Covarrubias\Pictures\ MyArrayList.png} }
+			\graphicspath{ {C:\Users\Andrew Covarrubias\Pictures\ MyLinkedList.png} }
+			
+		\end{a1}
+		
+		\begin{q2} %Question
+			\\
+			\textbf{Discuss Results}
+			
+		\end{q2}
+		
+		\bigskip
+		
+		\begin{a2} %Answer
+			Based on "Add to the end" it seems that the run time would be expected as it just gradually increases as the number of elements increase. The run time seems to be O(N) and seems reasonable compared to the other operators. It is however, slower than it's LinkedList counterpart.\\
+			
+			Based on "Add to the beginning" it seems to have a runtime greater than O(N) because it must constantly run through the ArrayList and return to the first element and shift the rest down by one. The run time does not seem very reasonable for practical use, but it does make sense because everything must be shifted. It is much slower than it's LinkedList counterpart.\\
+			
+			Based on "Remove from the end" it seems to run as expected with a run time following O(N) because it does not have to do any sort of shifting just adding more elements to the array. The run time seems fairly practical compared to the other methods used in MyArrayList. It seems to be about the same run time as its LinkedList counterpart.\\
+			
+			Based on "Remove from the beginning" it seems to have a runtime much greater than O(N) because it must remove the element and shift each other element forward by one. The run time does not seem very practical as shifting each element forward takes a great deal of time. It is much slower than it's LinkedList counterpart. \\
+			
+			Based on "Remove using iterator" it seems to follow a run time much greater than O(N) because the iterator must step through each element. Compared to just using the remove method it is not really worth it. It is much quicker than it's LinkedList counterpart. \\
+			
+			Based on "Sum all elements" it seems to run about as expected with a O(N) runtime as each element is stepped through and summed once. Much more practical than it's LinkedList counterpart. \\
+			
+			Based on "Fills with N 0 elements" it seems to run about as expected with a O(N) runtime as each element is just added to the end. About the same runtime as the first add to the end method. Still faster than the LinkedList counterpart. \\
+			
+			
+			Based on "Add to the end" it seems that it follows a O(N) runtime. About in the middle compared to other methods within LinkedList. Faster than it's ArrayList counterpart. \\
+			
+			Based on "Add to the beginning" seems that it follows slightly more than a O(N) run time. Slower than most of the other methods in LinkedList. Faster than it's ArrayList counterpart \\
+			
+			Based on "Remove from the end" seems to follow O(N) runtime. About the same as the first add method. Still faster than ArrayList counterpart. \\
+			
+			Based on "Remove from the beginning" seems to follow a O(N) runtime. Fastest of any other LinkedList method. Faster than it's counterpart.\\
+			
+			Based on "Remove using iterator" seems to follow a O(N) runtime. About in the middle for LinkedList runtimes. Much much faster than ArrayList counterpart. \\
+			
+			Based on "Sum all elements" takes much longer than a O(N) runtime because each node is run through and the pointer goes through each node in order to sum it. Slowest of the LinkedList methods. Much slower than ArrayList counterpart. \\
+			
+			Based on "Fills with N 0 nodes" takes about the same as an O(N) runtime. About the middle for LinkedList runtimes. Slower than it's ArrayListCounterPart. \\
+		\end{a2}
+		
+		
+		
+	\end{questions}
+\end{document}

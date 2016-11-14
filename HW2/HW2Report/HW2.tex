@@ -1,0 +1,159 @@
+\documentclass[letterpaper, 10pt]{article}
+
+
+
+\usepackage{fancyhdr}
+
+\usepackage[left=2.35cm,top=2.45cm,bottom=2.45cm,right=2.35cm,letterpaper]{geometry}
+
+\usepackage{amsmath}
+
+
+
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\fancyfoot[C,CO]{\thepage}
+
+\fancyhead[L,LO]{\bfseries EECS 233} %Class Title
+
+\fancyhead[C,CO]{\bfseries Homework \#2} %Assignment Title
+
+\fancyhead[R,RO]{Fall 2016} %Semester 
+
+
+
+\newenvironment{questions}{\textbf{Questions}} %BoldFaced Subsection
+
+\newenvironment{q1}{\noindent Question 1:} %Question Number
+
+\newenvironment{a1}{\noindent } %Answer
+
+\newenvironment{q2}{\noindent Question 2:} %Question Number
+
+\newenvironment{a2}{\noindent } %Answer
+
+\newenvironment{q3}{\noindent Question 3:} %Question Number
+
+\newenvironment{a3}{\noindent } %Answer
+
+\newenvironment{q4}{\noindent Question 4:} %Question Number
+
+\newenvironment{a4}{\noindent } %Answer
+
+
+\begin{document}
+
+	
+
+	\noindent
+
+	Andrew Covarrubias (axc554) %Name
+
+	\bigskip
+
+	\bigskip
+
+	
+
+	\begin{questions} %Start Questions
+
+		\bigskip
+
+		\begin{q1} %Question
+
+			\textbf{
+				For an array A of size N = 3, there are six possible subsequences $A_1$, $A_2$, $A_3$, $A_1$$A_2$, $A_2$$A_3$, $A_1$$A_2$$A_3$. How many subsequences are possible for N=4? Show your work.}
+			
+
+		\end{q1}
+
+		\bigskip
+
+		\begin{a1} %Answer
+			There are 10 total subsequences.\\
+			Subsequences starting with $A_1$: which are $A_1$, $A_1$$A_2$, $A_1$$A_2$$A_3$, $A_1$$A_2$$A_3$$A_4$ = 4 total\\
+			Subsequences starting with $A_2$: which are  $A_2$, $A_2$$A_3$, $A_2$$A_3$$A_4$ = 3 total\\
+			Subsequences starting with $A_3$: which are $A_3$$A_3$,$A_3$ = 2 total\\
+			Subsequences starting with $A_4$: which are $A_4$ = 1 total\\
+		
+			Summing all of the distinct subsequences we get a total number of 10 subsequences given an array of size N=4.
+
+		\end{a1}
+		
+		\bigskip
+		
+		\begin{q2}
+			\\
+			\textbf{
+				Derive a formula for the total number of possible subsequences for an arbitrary size N. You may use any
+				combination of diagrams, equations, and written logic. Hint: visualize a 2-D grid where one dimension
+				represents the starting index of each subsequence (0 to N-1) and the other dimension represents the length
+				of the subsequence (1 to N).}
+			
+		\end{q2}
+		
+		\bigskip
+		
+		\begin{a2}
+			After doing question 1 and going through the repeated process of adding the subsequence totals. There is a trend that becomes apparent where the possible subsequences is equal to the partial sum of a sequential series of numbers. For instance n = 4 would result in 4+3+2+1 possible subsequences.\\
+			
+			We can rewrite this in the given formula S = 1 + 2 + 3 +...+(n-1) + n, then write it backwards so its S = n + (n-1) + ... + 3 + 2 + 1. If you add the two equations then you get 2S = (n+1) + (n+1) + ... which can be rewritten as n(n+1). So now you have 2s = n(n+1), all you have to do is divide by 2 and you get $S = \frac{n(n+1)}{2}$\\
+			
+			Using question 1 as an example I managed to come up with the following formula:\\
+			Number of possible substrings = $\frac{N(N+1)}{2}$\\
+			
+			Using the formula stated above and if we plug in N=4 from question 1, we still get an answer of 10 and the same goes for any n value. The formula gets all of the possible subsequences in an array.
+		\end{a2}
+			\bigskip
+			
+		\begin{q3}
+			\\
+		\textbf{
+			Algorithm \#1 (Figure 2.5) in the Weiss book, which was discussed in class, is very inefficient. One reason
+			is that it redundantly computes sums for some subsequences. For the case N = 3, the sum of $A_1$ is	computed three times ($A_1$, $A_1$$A_2$, $A_1$$A_2$$A_3$). Likewise, the sum of $A_2$ is computed twice ($A_2$, $A_2$$A_3$), and the sum of $A_1$$A_2$ is computed twice ($A_1$$A_2$, $A_1$$A_2$$A_3$). The following analysis table shows the number of summations performed for each subsequence: \\
+			Any instance of repeating a summation is redundant. By this definition, there are a total of 4 redundant summations in the table above. Repeat the above analysis for N=4. Show your work.\\}
+				
+		\end{q3}
+			
+		\bigskip
+			
+		\begin{a3}
+			Looking at the total subsequences for an array of size, n=4, we can tell there are 10 subsequences which are $A_1$, $A_1$$A_2$, $A_1$$A_2$$A_3$, $A_1$$A_2$$A_3$$A_4$, $A_2$, $A_2$$A_3$, $A_2$$A_3$$A_4$, $A_3$, $A_3$$A_4$, $A_4$\\
+			We can than evaluate the redundancies of each subsequences.\\
+			$A_1$ = 4\\
+			$A_1$$A_2$ = 3\\
+			$A_1$$A_2$$A_3$ = 2\\
+			$A_1$$A_2$$A_3$$A_4$ = 1\\
+			$A_2$ = 3\\
+			$A_2$$A_3$ = 2\\
+			$A_2$$A_3$$A_4$ = 1\\
+			$A_3$ = 2\\
+			$A_3$$A_4$ = 1\\
+			$A_4$ = 1\\
+			Summing the redundancies we get 4+3+2+1+3+2+1+2+1+1 = 20\\
+			In total we end up with 10 subsequences and 20 redunacies amongst those subsequences. 
+		\end{a3}
+		\bigskip
+				
+		\begin{q4}
+	    \\
+		\textbf{
+			Write a program that computes the number of redundancies for a range of N values. Display the values of N, the number of subsequences using your formula from problem \#2, and the number of redundancies. Below is an example of how your output might look. Exact formatting is not important. Hint: one	approach is to use the original triple-loop algorithm and maintain an array of counters for each subsequence, similar to the 2-D grid that was suggested for problem \#2 above. Other approaches may be possible too.}
+					
+		\end{q4}
+				
+		\bigskip
+				
+		\begin{a4}
+			
+					
+		\end{a4}
+				
+
+
+
+	\end{questions}
+
+\end{document}
